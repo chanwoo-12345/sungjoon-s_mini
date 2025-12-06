@@ -1,0 +1,248 @@
+/* ==========================================
+      미니홈 공통 레이아웃 (visitor + owner)
+========================================== */
+
+body {
+  background: #f4efff url("../img/background.jpg") center/cover fixed;
+  font-family: "돋움", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.mini-home {
+  width: 980px;
+  height: 650px;
+  display: grid;
+  grid-template-columns: 240px 1fr 320px;
+  gap: 10px;
+
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #c7b7ff;
+  border-radius: 10px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+      왼쪽 패널
+========================= */
+
+.left-panel {
+  background: #ffffff;
+  border: 1px solid #d7ccff;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 180px;
+  background: #eee;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.profile-status {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.today-box {
+  text-align: center;
+  font-size: 12px;
+  background: #f0e9ff;
+  padding: 6px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  border: 1px solid #c9baff;
+}
+
+/* 메뉴 */
+
+.menu ul {
+  list-style: none;
+}
+
+.menu-item {
+  padding: 8px;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: #f2eaff;
+}
+
+.menu-item.active {
+  background: #daccff;
+  font-weight: bold;
+}
+
+/* =========================
+      중앙 미니룸
+========================= */
+
+.center-panel {
+  background: #ffffff;
+  border: 1px solid #d7ccff;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+}
+
+.miniroom-title {
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.miniroom-box {
+  width: 100%;
+  height: 300px;
+  background: #eee;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================
+      오른쪽 컨텐츠
+========================= */
+
+.right-panel {
+  background: #ffffff;
+  border: 1px solid #d7ccff;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.content-box {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* 다이어리 */
+
+.diary-write-box textarea {
+  width: 100%;
+  height: 70px;
+  resize: none;
+}
+
+.diary-write-box button {
+  margin-top: 6px;
+  float: right;
+  padding: 6px 12px;
+  background: #d5c4ff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.diary-item {
+  background: #f8f5ff;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid #e2d9ff;
+}
+
+.delete-diary-btn {
+  margin-top: 6px;
+  padding: 4px 10px;
+  background: #f2b7b7;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 사진첩 */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.delete-btn {
+  margin-top: 5px;
+  background: #f5bcbc;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* 방명록 */
+
+.guestbook-form input,
+.guestbook-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.guestbook-form button {
+  margin-top: 6px;
+  float: right;
+  padding: 6px 12px;
+  background: #c8b1ff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.guestbook-item {
+  background: #f7f3ff;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid #dbd0ff;
+}
+
+.guestbook-meta {
+  font-size: 11px;
+  color: #555;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 8px;
+  background: #f2bcbc;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
