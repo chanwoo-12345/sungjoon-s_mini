@@ -36,34 +36,38 @@ function updateVisitCount() {
 
 
 /* ============================
-   메뉴 (홈/다이어리/사진첩/방명록)
+   메뉴(홈/다이어리/사진첩/방명록)
 ============================ */
 function setupMenuTabs() {
   const menuItems = document.querySelectorAll(".menu-item");
-  const contentTitle = document.querySelector(".content-title");
-  const contentBody = document.querySelector(".content-body");
+  const tabHome = document.querySelector(".tab-home");
+  const tabs = document.querySelectorAll(".tab-content");
 
   if (!menuItems.length) return;
 
-  const sampleContent = {
-    "홈": "홈 화면입니다.",
-    "다이어리": "여기는 다이어리 페이지가 들어옵니다.",
-    "사진첩": "여기는 사진첩입니다.",
-    "방명록": "여기는 방명록 화면입니다."
+  const tabMap = {
+    "홈": ".tab-home",
+    "다이어리": ".tab-diary",
+    "사진첩": ".tab-photo",
+    "방명록": ".tab-guestbook"
   };
 
   menuItems.forEach((item) => {
     item.addEventListener("click", () => {
+
+      // 메뉴 UI 업데이트
       menuItems.forEach(m => m.classList.remove("active"));
       item.classList.add("active");
 
+      // 탭 전환
       const tabName = item.textContent.trim();
-      contentTitle.textContent = tabName;
-      contentBody.textContent = sampleContent[tabName] || "";
+      tabs.forEach(t => t.classList.remove("active"));
+
+      const selectedTab = document.querySelector(tabMap[tabName]);
+      if (selectedTab) selectedTab.classList.add("active");
     });
   });
 }
-
 
 /* ============================
    페이지 로드 시 실행
