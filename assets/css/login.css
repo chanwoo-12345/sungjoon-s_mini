@@ -1,0 +1,72 @@
+/* ===========================
+   로그인 화면 (login.html)
+=========================== */
+
+body.login-screen {
+  background: #f4efff url("../img/background.jpg") center/cover fixed;
+  font-family: "돋움", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 40px 50px;
+  border-radius: 12px;
+  border: 2px solid #baa8ff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.22);
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.login-box input {
+  width: 230px;
+  padding: 10px;
+  margin: 6px 0;
+  border: 1px solid #c9bfff;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#login-btn {
+  width: 230px;
+  padding: 12px;
+  background: #cbbaff;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#login-btn:hover {
+  background: #b9a4ff;
+}
+
+.login-error {
+  margin-top: 12px;
+  color: red;
+  font-size: 13px;
+  height: 20px;
+}
+
+.back-btn {
+  margin-top: 20px;
+  background: #eee;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.back-btn:hover {
+  background: #e2e2e2;
+}
