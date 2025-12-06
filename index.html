@@ -74,9 +74,18 @@
 
   <!-- 방명록 -->
   <div class="tab-content tab-guestbook">
-    <h4>📝 방명록</h4>
-    <p>이곳에 방문자가 글을 남길 수 있습니다.</p>
-  </div>
+   <h4>📝 방명록</h4>
+
+<div class="guestbook-form">
+  <input type="text" id="guest-name" placeholder="이름 / 닉네임">
+  <textarea id="guest-message" placeholder="방명록을 남겨주세요"></textarea>
+  <button id="guest-submit">작성</button>
+</div>
+
+<div class="guestbook-list" id="guest-list">
+  <!-- 저장된 방명록이 여기에 추가됨 -->
+</div>
+
 
 </div>
 
