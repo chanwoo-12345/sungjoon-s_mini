@@ -1,0 +1,60 @@
+/* ===========================
+   첫 화면 (방문자/오너 선택)
+=========================== */
+
+body.entry-screen {
+  background: #f4efff url("../img/background.jpg") center/cover fixed;
+  font-family: "돋움", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.entry-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px 50px;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #c5b1ff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.entry-box h2 {
+  font-size: 20px;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+
+.entry-desc {
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.entry-btn {
+  width: 230px;
+  padding: 12px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.entry-btn.visitor {
+  background: #e8d9ff;
+}
+
+.entry-btn.visitor:hover {
+  background: #d3bfff;
+}
+
+.entry-btn.owner {
+  background: #f7d4d4;
+}
+
+.entry-btn.owner:hover {
+  background: #f2bcbc;
+}
