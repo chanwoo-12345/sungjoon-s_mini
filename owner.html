@@ -74,9 +74,18 @@
 
   <!-- 방명록 -->
   <div class="tab-content tab-guestbook">
-    <h4>📝 방명록 (삭제 기능 가능)</h4>
-    <p>여기에 방문자가 남긴 글을 관리할 수 있습니다.</p>
-  </div>
+    <h4>📝 방명록 (삭제 가능)</h4>
+
+<div class="guestbook-form">
+  <input type="text" id="guest-name" placeholder="이름 / 닉네임">
+  <textarea id="guest-message" placeholder="방명록을 남겨주세요"></textarea>
+  <button id="guest-submit">작성</button>
+</div>
+
+<div class="guestbook-list" id="guest-list">
+  <!-- 방명록 목록 (삭제 버튼 포함) -->
+</div>
+
 
 </div>
 
