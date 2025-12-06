@@ -142,3 +142,9 @@ function initGuestbook() {
 
   renderGuestbook();
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+  updateVisitCount();
+  setupMenuTabs();
+  initGuestbook();  // 방명록 기능 실행
+});
