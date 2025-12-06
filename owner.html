@@ -5,6 +5,13 @@
   <title>성준 미니홈피 - 주인 모드</title>
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style-v2.css">
+  <script>
+if (localStorage.getItem("isOwner") !== "true") {
+    // 방문자가 owner 페이지에 접근하면 index로 이동
+    window.location.href = "index.html";
+}
+</script>
+
 </head>
   
 <body>
