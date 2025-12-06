@@ -136,3 +136,123 @@ body {
   font-size: 13px;
   line-height: 1.4;
 }
+
+/* =============================
+   💜 전체 느낌 업그레이드
+============================= */
+body {
+  background: url("https://i.imgur.com/6I9Q2Qe.png"); /* 연보라 체크패턴 */
+  background-size: 420px;
+}
+
+/* 카드형 박스 스타일 공통 */
+.box {
+  background: #ffffffee;
+  border: 1px solid #d8d0ff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* =============================
+   💜 왼쪽 프로필 박스 스타일 강화
+============================= */
+.left-panel {
+  composes: box;
+  padding: 16px;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 190px;
+  border-radius: 8px;
+  background: #e5e5ff;
+  background-image: url("https://i.imgur.com/lZOxMTI.png"); /* 도트 캐릭터 기본 이미지 */
+  background-size: cover;
+  margin-bottom: 12px;
+  border: 1px solid #cfc6ff;
+}
+
+.profile-name {
+  font-size: 15px;
+  color: #4a3da8;
+  margin-bottom: 6px;
+}
+
+.profile-status {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.today-box {
+  background: #f1ecff;
+  padding: 7px 0;
+  border-radius: 8px;
+  font-size: 12px;
+  border: 1px solid #d3caff;
+}
+
+/* =============================
+   💜 메뉴 스타일 강화 (싸이 감성)
+============================= */
+.menu-item {
+  background: #f7f5ff;
+  border: 1px solid #dcd3ff;
+  border-radius: 8px;
+  margin-bottom: 7px;
+  padding: 8px;
+  font-size: 13px;
+  color: #4d44a5;
+  transition: 0.2s;
+}
+
+.menu-item:hover {
+  background: #e8e3ff;
+}
+
+.menu-item.active {
+  background: #d3c7ff;
+  color: #352b84;
+  font-weight: bold;
+}
+
+/* =============================
+   💜 미니룸 박스 강화
+============================= */
+.miniroom {
+  composes: box;
+  padding: 10px;
+}
+
+.miniroom-title {
+  font-size: 12px;
+  color: #5b4ed4;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.miniroom-box {
+  height: 260px;
+  background: url("https://i.imgur.com/xm7pJNm.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  border: 1px solid #dcd3ff;
+}
+
+/* =============================
+   💜 오른쪽 콘텐츠 강화
+============================= */
+.content-box {
+  composes: box;
+  padding: 16px;
+}
+
+.content-title {
+  color: #4036a3;
+  border-bottom: 1px dashed #ccbfff;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
