@@ -60,18 +60,24 @@
           <div id="photo-list" class="photo-grid"></div>
         </div>
 
-        <!-- 방명록 (작성 가능) -->
-        <div class="tab-content" id="tab-guestbook">
-          <h3>📝 방명록</h3>
+        <!-- 방명록 -->
+<div class="tab-content" id="tab-guestbook">
+  <h3>📝 방명록</h3>
 
-          <div class="guestbook-form">
-            <input id="guest-name" placeholder="이름 / 닉네임">
-            <textarea id="guest-message" placeholder="메시지를 남겨주세요"></textarea>
-            <button id="guest-submit">작성</button>
-          </div>
+  <!-- 작성 폼 (방문자 전용) -->
+  <div class="guestbook-form visitor-only">
+    <input id="guest-name" placeholder="이름 / 닉네임">
 
-          <div id="guest-list" class="guestbook-list"></div>
-        </div>
+    <div class="message-input-row">
+      <textarea id="guest-message" placeholder="메시지를 남겨주세요"></textarea>
+      <button id="guest-submit">작성</button>
+    </div>
+  </div>
+
+  <!-- 방명록 목록 -->
+  <div id="guest-list" class="guestbook-list"></div>
+</div>
+
 
       </div>
     </section>
