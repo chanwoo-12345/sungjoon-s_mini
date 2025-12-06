@@ -4,84 +4,80 @@
   <meta charset="UTF-8">
   <title>성준 미니홈피 - 방문자</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/style-v2.css">
+  <link rel="stylesheet" href="assets/css/mini-home.css">
 </head>
 
 <body>
 
   <div class="mini-home">
 
-    <!-- 왼쪽 프로필 영역 -->
+    <!-- 왼쪽 -->
     <aside class="left-panel">
-      <div class="profile-box">
-        <div class="profile-photo"></div>
+      <div id="profile-image" class="profile-photo"></div>
 
-        <div class="profile-name">✦ 성준★별빛남자 ✦</div>
-        <div class="profile-status">오늘도 화이팅 ✨</div>
+      <div class="profile-name">✦ 성준★별빛남자 ✦</div>
+      <div class="profile-status">오늘도 화이팅 ✨</div>
 
-        <div class="today-box">
-          TODAY <span id="today-count">0</span> / TOTAL <span id="total-count">0</span>
-        </div>
+      <div class="today-box">
+        TODAY <span id="today-count">0</span> / TOTAL <span id="total-count">0</span>
       </div>
 
       <nav class="menu">
         <ul>
-          <li class="menu-item active">홈</li>
-          <li class="menu-item">다이어리</li>
-          <li class="menu-item">사진첩</li>
-          <li class="menu-item">방명록</li>
+          <li class="menu-item active" data-tab="home">홈</li>
+          <li class="menu-item" data-tab="diary">다이어리</li>
+          <li class="menu-item" data-tab="photo">사진첩</li>
+          <li class="menu-item" data-tab="guestbook">방명록</li>
         </ul>
       </nav>
     </aside>
 
-    <!-- 중앙 미니룸 -->
+    <!-- 중앙 -->
     <main class="center-panel">
-      <div class="miniroom">
-        <div class="miniroom-title">🏠 MINI ROOM</div>
-
-        <div class="miniroom-box"></div>
-      </div>
+      <div class="miniroom-title">🏠 MINI ROOM</div>
+      <div id="room-image" class="miniroom-box"></div>
     </main>
 
-    <!-- 오른쪽 컨텐츠 영역 -->
+    <!-- 오른쪽 -->
     <section class="right-panel">
       <div class="content-box">
-        <h3 class="content-title">홈</h3>
 
-        <div class="content-body">
-
-          <!-- 홈 -->
-          <div class="tab-content tab-home active">
-            <p>방문자용 홈 화면입니다.</p>
-          </div>
-
-          <!-- 다이어리 -->
-          <div class="tab-content tab-diary">
-            <h4>📘 다이어리</h4>
-            <div id="diary-list"></div>
-          </div>
-
-          <!-- 사진첩 -->
-          <div class="tab-content tab-photo">
-            <h4>📷 사진첩</h4>
-            <div class="photo-grid"></div>
-          </div>
-
-          <!-- 방명록 -->
-          <div class="tab-content tab-guestbook">
-            <h4>📝 방명록</h4>
-            <div id="guest-list" class="guestbook-list"></div>
-          </div>
-
+        <!-- 홈 -->
+        <div class="tab-content active" id="tab-home">
+          방문자용 홈 화면입니다.
         </div>
+
+        <!-- 다이어리 -->
+        <div class="tab-content" id="tab-diary">
+          <h3>📘 다이어리</h3>
+          <div id="diary-list"></div>
+        </div>
+
+        <!-- 사진첩 -->
+        <div class="tab-content" id="tab-photo">
+          <h3>📷 사진첩</h3>
+          <div id="photo-list" class="photo-grid"></div>
+        </div>
+
+        <!-- 방명록 (작성 가능) -->
+        <div class="tab-content" id="tab-guestbook">
+          <h3>📝 방명록</h3>
+
+          <div class="guestbook-form">
+            <input id="guest-name" placeholder="이름 / 닉네임">
+            <textarea id="guest-message" placeholder="메시지를 남겨주세요"></textarea>
+            <button id="guest-submit">작성</button>
+          </div>
+
+          <div id="guest-list" class="guestbook-list"></div>
+        </div>
+
       </div>
     </section>
 
   </div>
 
-  <!-- JS -->
   <script src="assets/js/global.js"></script>
   <script src="assets/js/visitor.js"></script>
 
