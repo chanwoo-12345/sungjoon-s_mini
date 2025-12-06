@@ -151,6 +151,7 @@ window.addEventListener("DOMContentLoaded", () => {
    initDiary();
    initProfilePhoto();
    initMiniRoom();
+   applyPermission();
 
 });
 
@@ -316,4 +317,27 @@ function initMiniRoom() {
     };
     reader.readAsDataURL(file);
   });
+}
+
+/* ============================
+   ⚠ 방문자는 편집 기능 숨기기
+============================ */
+function applyPermission() {
+  const isOwner = localStorage.getItem("isOwner") === "true";
+
+  // 프로필 변경
+  const profileUpload = document.getElementById("profile-upload");
+  if (profileUpload && !isOwner) profileUpload.style.display = "none";
+
+  // 미니룸 변경
+  const roomUpload = document.getElementById("room-upload");
+  if (roomUpload && !isOwner) roomUpload.style.display = "none";
+
+  // 다이어리 작성 UI
+  const diaryBox = document.querySelector(".diary-write-box");
+  if (diaryBox && !isOwner) diaryBox.style.display = "none";
+
+  // 사진 업로드
+  const photoUpload = document.getElementById("photo-upload");
+  if (photoUpload && !isOwner) photoUpload.style.display = "none";
 }
