@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>로그인</h2>
+
+    <input id="login-id" placeholder="아이디">
+    <input id="login-pw" type="password" placeholder="비밀번호">
+    <button id="login-btn">로그인</button>
+
+    <p id="login-error" style="color:red; margin-top:10px;"></p>
+  </div>
+
+  <script>
+    // 임시 로그인 기능
+    document.getElementById("login-btn").addEventListener("click", () => {
+      const id = document.getElementById("login-id").value.trim();
+      const pw = document.getElementById("login-pw").value.trim();
+
+      if (id === "sungjoon" && pw === "1234") {
+        window.location.href = "owner.html"; // → 주인 모드 진입
+      } else {
+        document.getElementById("login-error").textContent =
+          "아이디 또는 비밀번호가 올바르지 않습니다.";
+      }
+    });
+  </script>
+</body>
+</html>
