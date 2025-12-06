@@ -141,8 +141,8 @@ body {
    💜 전체 느낌 업그레이드
 ============================= */
 body {
- /* background: url("https://i.imgur.com/6I9Q2Qe.png"); /* 연보라 체크패턴 */
- /* background-size: 420px;
+  background: url("assets/img/background.jpg"); /* 배경화면 충돌 원인 */
+  background-size: 420px;
 }
 
 /* 카드형 박스 스타일 공통 */
