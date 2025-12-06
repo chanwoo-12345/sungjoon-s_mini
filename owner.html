@@ -2,120 +2,96 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>성준 미니홈피 - 주인 페이지</title>
-
-  <!-- 방문자 접근 차단 -->
-  <script>
-    if (localStorage.getItem("isOwner") !== "true") {
-      window.location.href = "visitor.html";
-    }
-  </script>
+  <title>성준 미니홈피 - 오너 모드</title>
 
   <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/style-v2.css">
+  <link rel="stylesheet" href="assets/css/mini-home.css">
+
+  <script>
+    if (localStorage.getItem("isOwner") !== "true") {
+      alert("접근 권한이 없습니다.");
+      location.href = "visitor.html";
+    }
+  </script>
 </head>
 
-<body class="owner-mode">
+<body>
 
   <div class="mini-home">
 
-    <!-- 왼쪽 프로필 영역 -->
+    <!-- 왼쪽 -->
     <aside class="left-panel">
-      <div class="profile-box">
-        <div class="profile-photo"></div>
 
-        <!-- owner 전용 프로필 수정 -->
-        <input type="file" id="profile-upload" class="owner-only">
+      <div id="profile-image" class="profile-photo"></div>
+      <input type="file" id="profile-upload" accept="image/*">
 
-        <div class="profile-name">✦ 성준★별빛남자 ✦</div>
-        <div class="profile-status">오늘도 화이팅 ✨</div>
+      <div class="profile-name">✦ 성준★별빛남자 ✦</div>
 
-        <div class="today-box">
-          TODAY <span id="today-count">0</span> / TOTAL <span id="total-count">0</span>
-        </div>
-
-        <!-- 로그아웃 버튼 -->
-        <button id="logout-btn" class="owner-only logout-btn">로그아웃</button>
+      <div class="today-box">
+        TODAY <span id="today-count">0</span> / TOTAL <span id="total-count">0</span>
       </div>
 
       <nav class="menu">
         <ul>
-          <li class="menu-item active">홈</li>
-          <li class="menu-item">다이어리</li>
-          <li class="menu-item">사진첩</li>
-          <li class="menu-item">방명록</li>
+          <li class="menu-item active" data-tab="home">홈</li>
+          <li class="menu-item" data-tab="diary">다이어리</li>
+          <li class="menu-item" data-tab="photo">사진첩</li>
+          <li class="menu-item" data-tab="guestbook">방명록</li>
         </ul>
       </nav>
+
+      <button id="logout-btn" class="logout-btn">로그아웃</button>
+
     </aside>
 
-    <!-- 중앙 미니룸 -->
+    <!-- 중앙 -->
     <main class="center-panel">
-      <div class="miniroom">
-        <div class="miniroom-title">🏠 MINI ROOM</div>
-
-        <div class="miniroom-box">
-        </div>
-
-        <!-- owner 전용 미니룸 수정 -->
-        <input type="file" id="room-upload" class="owner-only">
-      </div>
+      <div class="miniroom-title">🏠 MINI ROOM</div>
+      <div id="room-image" class="miniroom-box"></div>
+      <input type="file" id="room-upload" accept="image/*">
     </main>
 
-    <!-- 오른쪽 컨텐츠 영역 -->
+    <!-- 오른쪽 -->
     <section class="right-panel">
       <div class="content-box">
-        <h3 class="content-title">홈</h3>
-        <div class="content-body">
 
-  <!-- 홈 -->
-  <div class="tab-content tab-home active">
-    <p>어서오세요 주인님 😊<br>이곳은 당신의 미니홈피입니다!</p>
-  </div>
-
-  <!-- 다이어리 -->
-  <div class="tab-content tab-diary">
-
-    <!-- owner 전용 작성 박스 -->
-    <div class="diary-write-box owner-only">
-      <textarea id="diary-text" placeholder="오늘의 일기를 작성하세요"></textarea>
-      <button id="diary-submit">작성</button>
-    </div>
-
-    <div id="diary-list"></div>
-  </div>
-
-  <!-- 사진첩 -->
-  <div class="tab-content tab-photo">
-
-    <!-- owner 전용 업로드 -->
-    <input type="file" id="photo-upload" accept="image/*" class="owner-only">
-
-    <div class="photo-grid"></div>
-  </div>
-
-  <!-- 방명록 -->
-  <div class="tab-content tab-guestbook">
-
-    <div class="guestbook-form owner-only">
-      <input type="text" id="guest-name" placeholder="이름 / 닉네임">
-      <textarea id="guest-message" placeholder="방명록 내용을 입력하세요"></textarea>
-      <button id="guest-submit">작성</button>
-    </div>
-
-    <div class="guestbook-list" id="guest-list"></div>
-  </div>
-
+        <!-- 홈 -->
+        <div class="tab-content active" id="tab-home">
+          🧑‍💻 오너 모드입니다.
         </div>
+
+        <!-- 다이어리 -->
+        <div class="tab-content" id="tab-diary">
+          <h3>📘 다이어리</h3>
+
+          <div class="diary-write-box">
+            <textarea id="diary-text"></textarea>
+            <button id="diary-submit">작성</button>
+          </div>
+
+          <div id="diary-list"></div>
+        </div>
+
+        <!-- 사진첩 -->
+        <div class="tab-content" id="tab-photo">
+          <input type="file" id="photo-upload" accept="image/*">
+          <div class="photo-grid" id="photo-list"></div>
+        </div>
+
+        <!-- 방명록 -->
+        <div class="tab-content" id="tab-guestbook">
+          <h3>📝 방명록 관리 (삭제만 가능)</h3>
+          <div id="guest-list" class="guestbook-list"></div>
+        </div>
+
       </div>
     </section>
 
   </div>
 
-  <!-- 공통 -->
   <script src="assets/js/global.js"></script>
-
-  <!-- owner 전용 기능 -->
   <script src="assets/js/owner.js"></script>
 
 </body>
 </html>
+
