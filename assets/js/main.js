@@ -149,6 +149,8 @@ window.addEventListener("DOMContentLoaded", () => {
    initGuestbook();  // 방명록 기능 실행
    initPhotoUpload();
    initDiary();
+   initProfilePhoto();
+   initMiniRoom();
 
 });
 
@@ -261,4 +263,57 @@ function initDiary() {
   });
 
   renderDiary();
+}
+
+/* ============================
+   🎨 프로필 사진 변경 (owner.html)
+============================ */
+function initProfilePhoto() {
+  const input = document.getElementById("profile-upload");
+  const profile = document.querySelector(".profile-photo");
+
+  if (!input || !profile) return;
+
+  // 기존 저장된 프로필 불러오기
+  const saved = localStorage.getItem("profile_photo");
+  if (saved) profile.style.backgroundImage = `url(${saved})`;
+
+  input.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      profile.style.backgroundImage = `url(${reader.result})`;
+      localStorage.setItem("profile_photo", reader.result);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+/* ============================
+   🎨 미니룸 사진 변경 (owner.html)
+============================ */
+function initMiniRoom() {
+  const input = document.getElementById("room-upload");
+  const room = document.querySelector(".miniroom-box");
+
+  if (!input || !room) return;
+
+  // 기존 저장값
+  const saved = localStorage.getItem("miniroom_img");
+  if (saved) room.style.backgroundImage = `url(${saved})`;
+
+  input.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      room.style.backgroundImage = `url(${reader.result})`;
+      room.style.backgroundSize = "cover";
+      localStorage.setItem("miniroom_img", reader.result);
+    };
+    reader.readAsDataURL(file);
+  });
 }
