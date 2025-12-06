@@ -246,3 +246,65 @@ body {
   border-radius: 6px;
   cursor: pointer;
 }
+
+/* 작성 영역 배치 */
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message-input-row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+#guest-message {
+  flex: 1;
+  height: 70px;
+  font-size: 13px;
+}
+
+#guest-submit {
+  padding: 6px 12px;
+  font-size: 12px;
+  background: #c3a6ff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 32px;
+  white-space: nowrap;
+}
+
+#guest-submit:hover {
+  background: #b38aff;
+}
+
+/* 방명록 항목 */
+.guestbook-item {
+  font-size: 13px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.guestbook-meta {
+  font-size: 11px;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+/* 줄마다 색깔 번갈이 */
+.guestbook-item:nth-child(odd) {
+  background: #f3eaff;
+}
+
+.guestbook-item:nth-child(even) {
+  background: #ececff;
+}
+
+/* 오너일 때 작성칸 숨기기 */
+.owner-mode .visitor-only {
+  display: none !important;
+}
