@@ -56,6 +56,13 @@
 
   <!-- 다이어리 -->
   <div class="tab-content tab-diary">
+    <div class="diary-write-box">
+  <textarea id="diary-text" placeholder="오늘의 일기를 작성해보세요"></textarea>
+  <button id="diary-submit">작성</button>
+</div>
+
+<div id="diary-list"></div>
+
     <h4>📘 다이어리</h4>
     <div class="diary-entry-sample">
       <p>여기는 다이어리가 표시될 자리입니다.</p>
@@ -64,6 +71,7 @@
 
   <!-- 사진첩 -->
   <div class="tab-content tab-photo">
+  <input type="file" id="photo-upload" accept="image/*">
     <h4>📷 사진첩</h4>
     <div class="photo-grid">
       <div class="photo-item">사진</div>
