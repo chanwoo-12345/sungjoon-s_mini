@@ -374,3 +374,64 @@ body {
   padding: 4px 8px;
   font-size: 11px;
 }
+
+/* =============================
+   📘 다이어리 입력창
+============================= */
+.diary-write-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+#diary-text {
+  height: 90px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #cfc6ff;
+  font-size: 13px;
+}
+
+#diary-submit {
+  width: 80px;
+  padding: 6px;
+  background: #d6cdff;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* 다이어리 목록 */
+.diary-item {
+  background: #f7f4ff;
+  border: 1px solid #ddd2ff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.diary-date {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.delete-diary-btn {
+  margin-top: 6px;
+  background: #ffb6c1;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+/* =============================
+   📷 사진 업로드
+============================= */
+#photo-upload {
+  margin: 10px 0;
+}
+
+.photo-item img {
+  width: 100%;
+  border-radius: 8px;
+}
