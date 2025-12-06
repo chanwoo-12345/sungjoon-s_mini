@@ -5,6 +5,12 @@
   <title>성준 미니홈피 - 방문자</title>
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style-v2.css">
+  
+<script>
+if (!localStorage.getItem("isOwner")) {
+    window.location.href = "login.html";
+}
+</script>
 </head>
 
 <body>
