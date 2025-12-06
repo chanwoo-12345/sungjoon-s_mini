@@ -160,6 +160,7 @@ window.addEventListener("DOMContentLoaded", () => {
   initProfilePhoto();
   initMiniRoom();
   applyPermission();
+  initLogout(); 
 
 });
 
@@ -348,4 +349,18 @@ function applyPermission() {
   // 사진 업로드
   const photoUpload = document.getElementById("photo-upload");
   if (photoUpload && !isOwner) photoUpload.style.display = "none";
+}
+
+/* =============================
+   🔒 로그아웃 기능
+============================= */
+function initLogout() {
+  const btn = document.getElementById("logout-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    localStorage.removeItem("isOwner");  // 권한 제거
+    sessionStorage.removeItem("visited_once"); // 방문자 락 초기화
+    window.location.href = "index.html"; // 방문자 홈으로 이동
+  });
 }
