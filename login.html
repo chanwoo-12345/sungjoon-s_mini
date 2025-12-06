@@ -18,19 +18,20 @@
     <p id="login-error" style="color:red; margin-top:10px;"></p>
   </div>
 
-  <script>
-    // 임시 로그인 기능
-    document.getElementById("login-btn").addEventListener("click", () => {
-      const id = document.getElementById("login-id").value.trim();
-      const pw = document.getElementById("login-pw").value.trim();
+ <script>
+function login() {
+  const id = document.getElementById("username").value;
+  const pw = document.getElementById("password").value;
 
-      if (id === "sungjoon" && pw === "1234") {
-        window.location.href = "owner.html"; // → 주인 모드 진입
-      } else {
-        document.getElementById("login-error").textContent =
-          "아이디 또는 비밀번호가 올바르지 않습니다.";
-      }
-    });
-  </script>
+  if (id === "sungjoon" && pw === "dhvmsthtm") {
+    // 주인 로그인 표시 저장
+    localStorage.setItem("isOwner", "true");
+    window.location.href = "owner.html";
+  } else {
+    alert("아이디 또는 비밀번호가 틀렸습니다!");
+  }
+}
+</script>
+
 </body>
 </html>
