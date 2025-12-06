@@ -19,19 +19,19 @@
   </div>
 
  <script>
-function login() {
-  const id = document.getElementById("username").value;
-  const pw = document.getElementById("password").value;
+    document.getElementById("login-btn").addEventListener("click", () => {
+      const id = document.getElementById("login-id").value.trim();
+      const pw = document.getElementById("login-pw").value.trim();
 
-  if (id === "sungjoon" && pw === "dhvmsthtm") {
-    // 주인 로그인 표시 저장
-    localStorage.setItem("isOwner", "true");
-    window.location.href = "owner.html";
-  } else {
-    alert("아이디 또는 비밀번호가 틀렸습니다!");
-  }
-}
-</script>
+      if (id === "sungjoon" && pw === "dhvmsthtm") {
+        localStorage.setItem("isOwner", "true");
+        window.location.href = "owner.html"; // 주인 화면 이동
+      } else {
+        document.getElementById("login-error").textContent =
+          "아이디 또는 비밀번호가 틀렸습니다!";
+      }
+    });
+  </script>
 
 </body>
 </html>
