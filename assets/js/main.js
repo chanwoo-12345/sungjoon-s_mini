@@ -144,18 +144,22 @@ function initGuestbook() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-   // 방문자 카운트는 index.html에서만 실행
-if (window.location.pathname.includes("index.html")) {
-  updateVisitCount();
-}
+
+  // 방문자 수 증가를 index.html에서 딱 1번만 실행하도록 막기
+  if (window.location.pathname.includes("index.html")) {
+    if (!sessionStorage.getItem("visited_once")) {
+      updateVisitCount();
+      sessionStorage.setItem("visited_once", "true");
+    }
+  }
    
-setupMenuTabs();
-initGuestbook();  // 방명록 기능 실행
-initPhotoUpload();
-initDiary();
-initProfilePhoto();
-initMiniRoom();
-applyPermission();
+  setupMenuTabs();
+  initGuestbook();  // 방명록 기능 실행
+  initPhotoUpload();
+  initDiary();
+  initProfilePhoto();
+  initMiniRoom();
+  applyPermission();
 
 });
 
