@@ -1,3 +1,12 @@
+// 방문자 / 오너 판별 후 body에 클래스 부여
+document.addEventListener("DOMContentLoaded", () => {
+  const isOwner = localStorage.getItem("isOwner") === "true";
+
+  if (isOwner) {
+    document.body.classList.add("owner-mode");
+  }
+});
+
 /* ============================================
    📌 전역: 메뉴 탭 전환
 ============================================ */
