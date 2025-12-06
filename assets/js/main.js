@@ -144,14 +144,18 @@ function initGuestbook() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-   updateVisitCount();
-   setupMenuTabs();
-   initGuestbook();  // 방명록 기능 실행
-   initPhotoUpload();
-   initDiary();
-   initProfilePhoto();
-   initMiniRoom();
-   applyPermission();
+   // 방문자 카운트는 index.html에서만 실행
+if (window.location.pathname.includes("index.html")) {
+  updateVisitCount();
+}
+   
+setupMenuTabs();
+initGuestbook();  // 방명록 기능 실행
+initPhotoUpload();
+initDiary();
+initProfilePhoto();
+initMiniRoom();
+applyPermission();
 
 });
 
