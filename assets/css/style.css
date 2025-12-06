@@ -315,3 +315,62 @@ body {
   font-size: 13px;
   color: #444;
 }
+
+/* =============================
+   📝 방명록 스타일
+============================= */
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+  border: 1px solid #d0c7ff;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 13px;
+}
+
+.guestbook-form button {
+  width: 80px;
+  align-self: flex-end;
+  padding: 6px;
+  background: #d6cdff;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.guestbook-list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.guestbook-item {
+  background: #f1ecff;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d0c7ff;
+}
+
+.guestbook-meta {
+  font-size: 11px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.guestbook-text {
+  font-size: 13px;
+}
+
+.delete-btn {
+  margin-top: 6px;
+  background: #ffb6c1;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+}
