@@ -444,3 +444,19 @@ body {
   margin-top: 8px;
   font-size: 12px;
 }
+
+/* =============================
+   🔒 로그아웃 버튼 디자인
+============================= */
+.logout-btn {
+  padding: 4px 10px;
+  font-size: 11px;
+  background: #e8ddff;
+  border: 1px solid #b9a8ff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #dcd0ff;
+}
