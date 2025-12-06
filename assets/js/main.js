@@ -77,3 +77,68 @@ window.addEventListener("DOMContentLoaded", () => {
   setupMenuTabs();
 });
 
+/* ============================
+   📝 방명록 저장 기능
+============================ */
+function initGuestbook() {
+  const nameInput = document.getElementById("guest-name");
+  const messageInput = document.getElementById("guest-message");
+  const submitBtn = document.getElementById("guest-submit");
+  const listEl = document.getElementById("guest-list");
+
+  if (!nameInput || !messageInput || !submitBtn || !listEl) return;
+
+  // 기존 저장된 목록 불러오기
+  let guestbook = JSON.parse(localStorage.getItem("guestbook") || "[]");
+
+  function renderGuestbook() {
+    listEl.innerHTML = "";
+
+    guestbook.forEach((entry, index) => {
+      const item = document.createElement("div");
+      item.classList.add("guestbook-item");
+
+      item.innerHTML = `
+        <div class="guestbook-meta">${entry.name} • ${entry.date}</div>
+        <div class="guestbook-text">${entry.message}</div>
+      `;
+
+      // owner.html이라면 삭제 기능 추가
+      if (window.location.pathname.includes("owner.html")) {
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "삭제";
+        delBtn.classList.add("delete-btn");
+
+        delBtn.addEventListener("click", () => {
+          guestbook.splice(index, 1);
+          localStorage.setItem("guestbook", JSON.stringify(guestbook));
+          renderGuestbook();
+        });
+
+        item.appendChild(delBtn);
+      }
+
+      listEl.appendChild(item);
+    });
+  }
+
+  submitBtn.addEventListener("click", () => {
+    const name = nameInput.value.trim();
+    const msg = messageInput.value.trim();
+    if (!name || !msg) return;
+
+    const today = new Date();
+    const date = `${today.getFullYear()}.${today.getMonth()+1}.${today.getDate()}`;
+
+    const newEntry = { name, message: msg, date };
+    guestbook.push(newEntry);
+
+    localStorage.setItem("guestbook", JSON.stringify(guestbook));
+
+    nameInput.value = "";
+    messageInput.value = "";
+    renderGuestbook();
+  });
+
+  renderGuestbook();
+}
