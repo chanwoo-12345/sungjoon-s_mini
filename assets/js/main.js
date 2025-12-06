@@ -144,7 +144,121 @@ function initGuestbook() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  updateVisitCount();
-  setupMenuTabs();
-  initGuestbook();  // 방명록 기능 실행
+   updateVisitCount();
+   setupMenuTabs();
+   initGuestbook();  // 방명록 기능 실행
+   initPhotoUpload();
+   initDiary();
+
 });
+
+/* ============================
+   📷 사진 업로드 기능
+============================ */
+function initPhotoUpload() {
+  const uploadInput = document.getElementById("photo-upload");
+  const photoGrid = document.querySelector(".photo-grid");
+
+  if (!uploadInput || !photoGrid) return;
+
+  let photos = JSON.parse(localStorage.getItem("photos") || "[]");
+
+  function renderPhotos() {
+    photoGrid.innerHTML = "";
+    photos.forEach((src, idx) => {
+      const div = document.createElement("div");
+      div.classList.add("photo-item");
+      div.innerHTML = `<img src="${src}">`;
+
+      // 삭제 기능 (owner.html에서만)
+      if (window.location.pathname.includes("owner.html")) {
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "삭제";
+        delBtn.classList.add("delete-btn");
+        delBtn.addEventListener("click", () => {
+          photos.splice(idx, 1);
+          localStorage.setItem("photos", JSON.stringify(photos));
+          renderPhotos();
+        });
+        div.appendChild(delBtn);
+      }
+
+      photoGrid.appendChild(div);
+    });
+  }
+
+  uploadInput.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      photos.push(reader.result);
+      localStorage.setItem("photos", JSON.stringify(photos));
+      renderPhotos();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  renderPhotos();
+}
+
+/* ============================
+   📘 다이어리 작성 기능
+============================ */
+function initDiary() {
+  const textArea = document.getElementById("diary-text");
+  const submitBtn = document.getElementById("diary-submit");
+  const listEl = document.getElementById("diary-list");
+
+  if (!textArea || !submitBtn || !listEl) return;
+
+  let diaries = JSON.parse(localStorage.getItem("diaries") || "[]");
+
+  function renderDiary() {
+    listEl.innerHTML = "";
+
+    diaries.forEach((entry, index) => {
+      const div = document.createElement("div");
+      div.classList.add("diary-item");
+
+      div.innerHTML = `
+        <div class="diary-date">${entry.date}</div>
+        <div class="diary-text">${entry.text}</div>
+      `;
+
+      // owner만 삭제 가능
+      if (window.location.pathname.includes("owner.html")) {
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "삭제";
+        delBtn.classList.add("delete-diary-btn");
+
+        delBtn.addEventListener("click", () => {
+          diaries.splice(index, 1);
+          localStorage.setItem("diaries", JSON.stringify(diaries));
+          renderDiary();
+        });
+
+        div.appendChild(delBtn);
+      }
+
+      listEl.appendChild(div);
+    });
+  }
+
+  submitBtn.addEventListener("click", () => {
+    const text = textArea.value.trim();
+    if (!text) return;
+
+    const now = new Date();
+    const date = `${now.getFullYear()}.${now.getMonth()+1}.${now.getDate()}`;
+
+    diaries.push({ text, date });
+    localStorage.setItem("diaries", JSON.stringify(diaries));
+
+    textArea.value = "";
+    renderDiary();
+  });
+
+  renderDiary();
+}
