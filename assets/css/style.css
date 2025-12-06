@@ -1,6 +1,6 @@
 body {
   font-family: '돋움', sans-serif;
-  background: #f5f3ff;  
+  background: url("assets/img/background.jpg") center/cover fixed no-repeat; 
   display: flex;
   justify-content: center;
   padding: 60px 0;
