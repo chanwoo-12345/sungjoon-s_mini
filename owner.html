@@ -2,49 +2,40 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>성준 미니홈피 - 주인 모드</title>
+  <title>성준 미니홈피 - 주인 페이지</title>
+
+  <!-- 방문자 접근 차단 -->
+  <script>
+    if (localStorage.getItem("isOwner") !== "true") {
+      window.location.href = "visitor.html";
+    }
+  </script>
+
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style-v2.css">
-  <script>
-if (localStorage.getItem("isOwner") !== "true") {
-    // 방문자가 owner 페이지에 접근하면 index로 이동
-    window.location.href = "visitor.html";
-}
-</script>
-
 </head>
-  
-<body>
+
+<body class="owner-mode">
 
   <div class="mini-home">
-    <!-- 상단 바 -->
-    <div class="top-bar">
-      <div class="top-title">★성준★별빛남자★님의 미니홈피 (Owner)</div>
 
-      <div class="top-right">
-
-        <div class="bgm-box">
-      <audio id="bgm" src="assets/bgm/bgm.mp3" loop></audio>
-      <span class="bgm-label">BGM: 🎵 헤어지지 못하는 여자 🎵</span>
-      <button id="bgm-btn">▶ 재생</button>
-    </div>
-        
-        <button id="logout-btn" class="logout-btn">로그아웃</button>
-      </div>
-    </div>
-    <!-- 왼쪽 프로필 -->
+    <!-- 왼쪽 프로필 영역 -->
     <aside class="left-panel">
       <div class="profile-box">
-        <div class="profile-photo owner-edit"></div>
-        <input type="file" id="profile-upload" accept="image/*">
+        <div class="profile-photo"></div>
+
+        <!-- owner 전용 프로필 수정 -->
+        <input type="file" id="profile-upload" class="owner-only">
+
         <div class="profile-name">✦ 성준★별빛남자 ✦</div>
-        <div class="profile-status">내가 주인이다 😎</div>
+        <div class="profile-status">오늘도 화이팅 ✨</div>
 
         <div class="today-box">
           TODAY <span id="today-count">0</span> / TOTAL <span id="total-count">0</span>
         </div>
 
-        <button class="edit-profile-btn">프로필 수정</button>
+        <!-- 로그아웃 버튼 -->
+        <button id="logout-btn" class="owner-only logout-btn">로그아웃</button>
       </div>
 
       <nav class="menu">
@@ -60,67 +51,59 @@ if (localStorage.getItem("isOwner") !== "true") {
     <!-- 중앙 미니룸 -->
     <main class="center-panel">
       <div class="miniroom">
-        <div class="miniroom-title">🏠 MINI ROOM (편집 모드)</div>
-        <div class="miniroom-box owner-edit-room">
-          주인 모드 → 미니룸 꾸미기 기능 예정.
-        </div>
-        <input type="file" id="room-upload" accept="image/*">
+        <div class="miniroom-title">🏠 MINI ROOM</div>
 
+        <div class="miniroom-box">
+        </div>
+
+        <!-- owner 전용 미니룸 수정 -->
+        <input type="file" id="room-upload" class="owner-only">
       </div>
     </main>
 
-    <!-- 오른쪽 컨텐츠 -->
+    <!-- 오른쪽 컨텐츠 영역 -->
     <section class="right-panel">
       <div class="content-box">
-        <h3 class="content-title">홈 (Owner)</h3>
+        <h3 class="content-title">홈</h3>
         <div class="content-body">
 
   <!-- 홈 -->
   <div class="tab-content tab-home active">
-    <p>주인 모드 홈 화면입니다. 수정 기능 등이 여기에 추가됩니다.</p>
+    <p>어서오세요 주인님 😊<br>이곳은 당신의 미니홈피입니다!</p>
   </div>
 
   <!-- 다이어리 -->
   <div class="tab-content tab-diary">
-    <div class="diary-write-box">
-  <textarea id="diary-text" placeholder="오늘의 일기를 작성해보세요"></textarea>
-  <button id="diary-submit">작성</button>
-</div>
 
-<div id="diary-list"></div>
+    <!-- owner 전용 작성 박스 -->
+    <div class="diary-write-box owner-only">
+      <textarea id="diary-text" placeholder="오늘의 일기를 작성하세요"></textarea>
+      <button id="diary-submit">작성</button>
+    </div>
 
-    <h4>📘 다이어리 (편집 가능)</h4>
-    <p>여기서 일기를 작성할 수 있습니다.</p>
+    <div id="diary-list"></div>
   </div>
 
   <!-- 사진첩 -->
   <div class="tab-content tab-photo">
-  <input type="file" id="photo-upload" accept="image/*">
-    
-    <h4>📷 사진첩 (사진 업로드 가능)</h4>
-    <div class="photo-grid">
-      <div class="photo-item">사진</div>
-      <div class="photo-item">사진</div>
-      <div class="photo-item">사진</div>
-    </div>
+
+    <!-- owner 전용 업로드 -->
+    <input type="file" id="photo-upload" accept="image/*" class="owner-only">
+
+    <div class="photo-grid"></div>
   </div>
 
   <!-- 방명록 -->
   <div class="tab-content tab-guestbook">
-    <h4>📝 방명록 (삭제 가능)</h4>
 
-<div class="guestbook-form">
-  <input type="text" id="guest-name" placeholder="이름 / 닉네임">
-  <textarea id="guest-message" placeholder="방명록을 남겨주세요"></textarea>
-  <button id="guest-submit">작성</button>
-</div>
+    <div class="guestbook-form owner-only">
+      <input type="text" id="guest-name" placeholder="이름 / 닉네임">
+      <textarea id="guest-message" placeholder="방명록 내용을 입력하세요"></textarea>
+      <button id="guest-submit">작성</button>
+    </div>
 
-<div class="guestbook-list" id="guest-list">
-  <!-- 방명록 목록 (삭제 버튼 포함) -->
-</div>
-
-
-</div>
+    <div class="guestbook-list" id="guest-list"></div>
+  </div>
 
         </div>
       </div>
@@ -128,7 +111,10 @@ if (localStorage.getItem("isOwner") !== "true") {
 
   </div>
 
+  <!-- 공통 -->
   <script src="assets/js/global.js"></script>
+
+  <!-- owner 전용 기능 -->
   <script src="assets/js/owner.js"></script>
 
 </body>
