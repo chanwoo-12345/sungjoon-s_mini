@@ -160,7 +160,8 @@ window.addEventListener("DOMContentLoaded", () => {
   initProfilePhoto();
   initMiniRoom();
   applyPermission();
-  initLogout(); 
+  initLogout();
+  initBGM();
 
 });
 
@@ -362,5 +363,24 @@ function initLogout() {
     localStorage.removeItem("isOwner");  // 권한 제거
     sessionStorage.removeItem("visited_once"); // 방문자 락 초기화
     window.location.href = "index.html"; // 방문자 홈으로 이동
+  });
+}
+
+/* =============================
+   🎵 BGM 토글 플레이어
+============================= */
+function initBGM() {
+  const audio = document.getElementById("bgm");
+  const btn = document.getElementById("bgm-btn");
+  if (!audio || !btn) return;
+
+  btn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = "⏸ 정지";
+    } else {
+      audio.pause();
+      btn.textContent = "▶ 재생";
+    }
   });
 }
