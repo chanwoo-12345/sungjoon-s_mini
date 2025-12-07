@@ -443,3 +443,20 @@ body {
   line-height: 1.2 !important;     /* 컴팩트한 줄간격 */
   white-space: pre-line !important; /* pre-wrap보다 카드 덜 커지는 방식 */
 }
+
+/* ===== 오른쪽 패널 기본 여백 줄이기 ===== */
+.content-box {
+  padding: 0 !important;   /* 기존 12px → 0 */
+}
+
+/* ===== 다이어리/방명록 탭 여백 줄이기 ===== */
+.tab-content {
+  padding: 6px !important;  /* 기존 padding을 최소화 */
+}
+
+/* ===== 카드 자체 기본 높이 없애기 ===== */
+.diary-item,
+.guestbook-item {
+  min-height: 0 !important;  /* 높이를 컨텐츠만큼만 */
+  padding: 6px 8px !important;
+}
