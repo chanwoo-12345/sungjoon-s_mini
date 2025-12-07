@@ -7,7 +7,9 @@ body {
   font-family: "돋움", sans-serif;
   display: flex;
   justify-content: center;
-  padding-top: 60px;
+  align-items: center;   /* ⬅ 핵심! */
+  height: 100vh;         /* ⬅ 크기가 늘어나도 가운데 유지 */
+  padding: 0;            /* ⬅ 위 padding 제거 */
 }
 
 .mini-home {
