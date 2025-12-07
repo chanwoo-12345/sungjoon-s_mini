@@ -455,3 +455,60 @@ body {
 .diary-input-wrapper button:hover {
   background: #c4b1ff;
 }
+
+/* ===== 프로필 수정 팝업 ===== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #ffffff;
+  width: 280px;
+  padding: 18px;
+  border-radius: 10px;
+  border: 2px solid #c7b7ff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  font-size: 14px;
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 6px;
+  margin: 4px 0 10px 0;
+  border: 1px solid #c9baff;
+  border-radius: 6px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-buttons button {
+  width: 48%;
+  padding: 8px;
+  border: none;
+  background: #d6c5ff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-buttons button:hover {
+  background: #c6b2ff;
+}
