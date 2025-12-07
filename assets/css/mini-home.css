@@ -308,3 +308,11 @@ body {
 .owner-mode .visitor-only {
   display: none !important;
 }
+
+/* 1번 문제 해결 - 다이어리/방명록 줄바꿈 정상 적용 */
+.diary-text,
+.guestbook-text {
+  white-space: pre-wrap;       /* 줄바꿈 유지 + 자동 줄바꿈 */
+  word-break: break-word;      /* 긴 단어도 박스 넘지 않도록 처리 */
+  line-height: 1.4;
+}
