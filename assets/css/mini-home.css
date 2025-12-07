@@ -311,14 +311,6 @@ body {
   display: none !important;
 }
 
-/* 1번 문제 해결 - 다이어리/방명록 줄바꿈 정상 적용 */
-.diary-text,
-.guestbook-text {
-  white-space: pre-wrap;       /* 줄바꿈 유지 + 자동 줄바꿈 */
-  word-break: break-word;      /* 긴 단어도 박스 넘지 않도록 처리 */
-  line-height: 1.4;
-}
-
 /* 3번 해결 - 프로필 업로드 커스텀 버튼 */
 .custom-upload-btn {
   width: 85%;                     /* 너무 넓지 않게 줄임 */
@@ -346,13 +338,7 @@ body {
   background-repeat: no-repeat;
 }
 
-/* ===== 1번 문제 해결: 텍스트 자동 줄바꿈 보정 ===== */
-.diary-item, 
-.guestbook-item {
-  width: 100%;
-  word-break: break-word;
-  white-space: pre-wrap;
-}
+
 
 /* 텍스트 박스가 부모 크기 안에서 자연스럽게 확장되도록 */
 .diary-text,
@@ -383,47 +369,24 @@ body {
   padding-right: 4px;       /* 스크롤바 여백 */
 }
 
-/* ===== 얇고 깔끔한 카드 스타일 ===== */
-.diary-item,
-.guestbook-item {
-  padding: 8px 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  word-break: break-word;
-  white-space: pre-wrap;
-  background: #f3ecff;
-}
-
 .diary-text,
 .guestbook-text {
   margin-top: 6px;
   line-height: 1.25;   /* 얇게 보이도록 줄간격 축소 */
 }
 
-/* ===== 다이어리/방명록 카드 - 적당한 두께로 최종 보정 ===== */
+/* ===== 다이어리/방명록 카드 최종 정리 ===== */
 .diary-item,
 .guestbook-item {
-  padding: 6px 10px !important;     /* 너무 두껍지 않게 딱 적당한 여백 */
-  margin-bottom: 8px !important;    /* 카드 사이 여백 줄임 */
+  width: 100%;
+  padding: 6px 8px !important;
+  margin-bottom: 8px !important;
   border-radius: 8px !important;
-  background: #f3ecff !important;   /* 은은한 파스텔감 */
+  background: #f3ecff !important;
+  border: 1px solid #e2d9ff !important;
   word-break: break-word !important;
-  white-space: pre-wrap !important;
-}
-
-/* 텍스트 부분 – 줄간격을 자연스럽게 얇게 */
-.diary-text,
-.guestbook-text {
-  margin-top: 4px !important;
-  line-height: 1.28 !important;      /* 읽기 편하면서 납작한 라인 */
-}
-
-/* ===== 카드(다이어리/방명록) 얇게 최종 조정 ===== */
-.diary-item,
-.guestbook-item {
-  padding: 6px 8px !important;      /* 위아래 여백 줄임 */
-  margin-bottom: 10px !important;
-  border-radius: 8px !important;
+  white-space: pre-line !important;
+  min-height: 0 !important;
 }
 
 /* 날짜 영역 */
@@ -432,45 +395,30 @@ body {
   margin-bottom: 4px !important;
   font-size: 12px;
   color: #666;
-  line-height: 1.1 !important;     /* 날짜 줄간격 최소 */
+  line-height: 1.1 !important;
 }
 
 /* 본문 텍스트 */
 .diary-text,
 .guestbook-text {
-  margin: 0 !important;            /* 위아래 여백 제거 */
+  display: block;
+  margin: 0 !important;
   padding: 0 !important;
-  line-height: 1.2 !important;     /* 컴팩트한 줄간격 */
-  white-space: pre-line !important; /* pre-wrap보다 카드 덜 커지는 방식 */
-}
-
-/* ===== 오른쪽 패널 기본 여백 줄이기 ===== */
-.content-box {
-  padding: 0 !important;   /* 기존 12px → 0 */
-}
-
-/* ===== 다이어리/방명록 탭 여백 줄이기 ===== */
-.tab-content {
-  padding: 6px !important;  /* 기존 padding을 최소화 */
-}
-
-/* ===== 카드 자체 기본 높이 없애기 ===== */
-.diary-item,
-.guestbook-item {
-  min-height: 0 !important;  /* 높이를 컨텐츠만큼만 */
-  padding: 6px 8px !important;
-}
-
-.diary-text,
-.guestbook-text {
-  line-height: 1.1 !important;  /* 더 얇게 */
-  padding: 0 !important;        /* 위아래 붙임 */
-  margin: 0 !important;         /* 여백 제거 */
+  line-height: 1.15 !important;
   white-space: pre-line !important;
+  word-break: break-word !important;
 }
 
-.diary-item,
-.guestbook-item {
-  padding: 6px 10px !important;
-  border-radius: 8px !important;
+/* 오른쪽 패널 스크롤 */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
+
+.content-box {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
