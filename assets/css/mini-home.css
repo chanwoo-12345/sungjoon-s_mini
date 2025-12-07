@@ -382,3 +382,20 @@ body {
   overflow-y: auto;         /* 이 안에서만 스크롤됨 */
   padding-right: 4px;       /* 스크롤바 여백 */
 }
+
+/* ===== 얇고 깔끔한 카드 스타일 ===== */
+.diary-item,
+.guestbook-item {
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  word-break: break-word;
+  white-space: pre-wrap;
+  background: #f3ecff;
+}
+
+.diary-text,
+.guestbook-text {
+  margin-top: 6px;
+  line-height: 1.25;   /* 얇게 보이도록 줄간격 축소 */
+}
