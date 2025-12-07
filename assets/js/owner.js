@@ -124,7 +124,9 @@ document.getElementById("save-profile").onclick = () => {
 
   // 즉시 적용
   document.querySelector(".profile-name").textContent = nickname;
-  document.querySelector(".profile-status")?.textContent = status;
+  const statusEl = document.querySelector(".profile-status");
+if (statusEl) statusEl.textContent = status;
+
 
   alert("프로필이 저장되었습니다!");
   location.reload(); // 방문자 페이지도 새 값 사용 가능하도록
