@@ -12,7 +12,8 @@ body {
 
 .mini-home {
   width: 980px;
-  height: 650px;
+  height: auto;
+  min-height: 650px;
   display: grid;
   grid-template-columns: 240px 1fr 320px;
   gap: 10px;
