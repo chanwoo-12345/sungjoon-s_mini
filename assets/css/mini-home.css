@@ -341,3 +341,27 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* ===== 1번 문제 해결: 텍스트 자동 줄바꿈 보정 ===== */
+.diary-item, 
+.guestbook-item {
+  width: 100%;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* 텍스트 박스가 부모 크기 안에서 자연스럽게 확장되도록 */
+.diary-text,
+.guestbook-text {
+  display: block;
+  line-height: 1.4;
+  width: 100%;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* 오른쪽 패널(inner scroll 영역) 높이 문제 보정 */
+.content-box {
+  overflow-y: auto;
+  height: 100%;
+}
