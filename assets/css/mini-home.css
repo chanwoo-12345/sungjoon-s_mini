@@ -460,3 +460,17 @@ body {
   min-height: 0 !important;  /* 높이를 컨텐츠만큼만 */
   padding: 6px 8px !important;
 }
+
+.diary-text,
+.guestbook-text {
+  line-height: 1.1 !important;  /* 더 얇게 */
+  padding: 0 !important;        /* 위아래 붙임 */
+  margin: 0 !important;         /* 여백 제거 */
+  white-space: pre-line !important;
+}
+
+.diary-item,
+.guestbook-item {
+  padding: 6px 10px !important;
+  border-radius: 8px !important;
+}
