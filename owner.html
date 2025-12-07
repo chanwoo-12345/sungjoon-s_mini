@@ -94,7 +94,27 @@
     </section>
 
   </div>
+  
+<div id="profile-modal" class="modal">
+      <div class="modal-content">
+        <h3>프로필 수정</h3>
 
+        <label>닉네임</label>
+        <input id="edit-nickname" maxlength="20">
+
+        <label>한줄 소개</label>
+        <input id="edit-status" maxlength="40">
+
+        <label>프로필 이미지 변경</label>
+        <input type="file" id="edit-photo" accept="image/*">
+
+        <div class="modal-buttons">
+          <button id="save-profile">저장</button>
+          <button id="close-profile">닫기</button>
+        </div>
+      </div>
+    </div>
+  
   <script src="assets/js/global.js"></script>
   <script src="assets/js/owner.js"></script>
 
