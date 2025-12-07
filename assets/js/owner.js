@@ -80,3 +80,52 @@ document.getElementById("logout-btn")?.addEventListener("click", () => {
 document.getElementById("profile-btn").addEventListener("click", () => {
   document.getElementById("profile-upload").click();
 });
+
+/* ============================================
+   프로필 수정 기능
+============================================ */
+
+// 팝업 열기
+document.getElementById("edit-profile-btn").onclick = () => {
+  document.getElementById("profile-modal").style.display = "flex";
+
+  // 현재 값 불러오기
+  document.getElementById("edit-nickname").value =
+    localStorage.getItem("nickname") || "✦ 성준★별빛남자 ✦";
+
+  document.getElementById("edit-status").value =
+    localStorage.getItem("status") || "";
+};
+
+// 팝업 닫기
+document.getElementById("close-profile").onclick = () => {
+  document.getElementById("profile-modal").style.display = "none";
+};
+
+// 저장 버튼
+document.getElementById("save-profile").onclick = () => {
+  const nickname = document.getElementById("edit-nickname").value.trim();
+  const status = document.getElementById("edit-status").value.trim();
+  const file = document.getElementById("edit-photo").files[0];
+
+  if (nickname) localStorage.setItem("nickname", nickname);
+  if (status) localStorage.setItem("status", status);
+
+  // 이미지 변경
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      localStorage.setItem("profile_photo", reader.result);
+      document.getElementById("profile-image").style.backgroundImage =
+        `url(${reader.result})`;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // 즉시 적용
+  document.querySelector(".profile-name").textContent = nickname;
+  document.querySelector(".profile-status")?.textContent = status;
+
+  alert("프로필이 저장되었습니다!");
+  location.reload(); // 방문자 페이지도 새 값 사용 가능하도록
+};
