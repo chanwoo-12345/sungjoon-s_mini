@@ -76,11 +76,6 @@ document.getElementById("logout-btn")?.addEventListener("click", () => {
   location.href = "index.html";
 });
 
-// 프로필 수정 버튼 → 숨겨진 input 실행
-document.getElementById("profile-btn").addEventListener("click", () => {
-  document.getElementById("profile-upload").click();
-});
-
 /* ============================================
    프로필 수정 기능
 ============================================ */
