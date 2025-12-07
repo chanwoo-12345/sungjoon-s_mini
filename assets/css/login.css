@@ -70,3 +70,37 @@ body.login-screen {
 .back-btn:hover {
   background: #e2e2e2;
 }
+
+/* 4번 해결 - 로그인 입력칸 가로 배치 */
+.login-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.login-row input {
+  width: 150px;
+  padding: 10px;
+  border: 1px solid #c9bfff;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* 로그인 버튼 가운데 정렬 */
+.login-submit-btn {
+  width: 150px;
+  padding: 10px;
+  background: #cbbaff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 auto;   /* 가운데 정렬 */
+  display: block;
+}
+
+.login-submit-btn:hover {
+  background: #b9a4ff;
+}
