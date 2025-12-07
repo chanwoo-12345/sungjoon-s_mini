@@ -543,3 +543,81 @@ body {
 .edit-profile-btn:hover {
   background: #cfc0ff;
 }
+
+/* ============================================
+   🌟 미니홈피 프로필 영역 업그레이드 전체 스타일
+============================================ */
+
+/* 프로필 전체를 세로 정렬 */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 닉네임 */
+.profile-name {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 12px;
+  padding: 5px 10px;
+  margin-bottom: 6px;
+  background: #f4efff;
+  border: 1px solid #dcd1ff;
+  border-radius: 6px;
+  width: 100%;
+  text-align: center;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
+/* 한줄 소개 — 가독성 + 안전한 줄바꿈 */
+.profile-status {
+  font-size: 12.5px;
+  color: #444;
+  text-align: center;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  background: #faf7ff;
+  border: 1px solid #e3d9ff;
+  border-radius: 6px;
+  width: 100%;
+  word-break: break-word;
+  white-space: pre-line;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
+/* TODAY/TOTAL */
+.today-box {
+  font-size: 12px;
+  background: linear-gradient(to bottom, #f9f5ff, #f0eaff);
+  border: 1px solid #d2c4ff;
+  border-radius: 6px;
+  padding: 6px 0;
+  margin-bottom: 14px;
+  width: 100%;
+  text-align: center;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.06);
+}
+
+/* 프로필 수정 버튼 — A안 */
+.edit-profile-btn {
+  width: 100%;
+  padding: 7px 0;
+  border-radius: 6px;
+  background: #d8caff;
+  border: 1px solid #c3b3ff;
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.25s;
+}
+
+.edit-profile-btn:hover {
+  background: #cfc0ff;
+}
+
+/* 메뉴 간격 정리 */
+.menu {
+  width: 100%;
+  margin-top: 6px !important;
+}
