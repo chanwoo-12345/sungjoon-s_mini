@@ -399,3 +399,21 @@ body {
   margin-top: 6px;
   line-height: 1.25;   /* 얇게 보이도록 줄간격 축소 */
 }
+
+/* ===== 다이어리/방명록 카드 - 적당한 두께로 최종 보정 ===== */
+.diary-item,
+.guestbook-item {
+  padding: 6px 10px !important;     /* 너무 두껍지 않게 딱 적당한 여백 */
+  margin-bottom: 8px !important;    /* 카드 사이 여백 줄임 */
+  border-radius: 8px !important;
+  background: #f3ecff !important;   /* 은은한 파스텔감 */
+  word-break: break-word !important;
+  white-space: pre-wrap !important;
+}
+
+/* 텍스트 부분 – 줄간격을 자연스럽게 얇게 */
+.diary-text,
+.guestbook-text {
+  margin-top: 4px !important;
+  line-height: 1.28 !important;      /* 읽기 편하면서 납작한 라인 */
+}
