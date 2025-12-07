@@ -51,7 +51,7 @@ document.getElementById("photo-upload")?.addEventListener("change", (e) => {
 /* ============================================
    📘 다이어리 작성 (오너 전용)
 ============================================ */
-document.getElementById("diary-submit")?.addEventListener("click", () => {
+document.getElementById("diary-write-btn")?.addEventListener("click", () => {
   const text = document.getElementById("diary-text").value.trim();
   if (!text) return;
 
