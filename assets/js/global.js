@@ -200,6 +200,22 @@ function loadImages() {
   if (r) room.style.backgroundImage = `url(${r})`;
 }
 
+/* ============================================
+   프로필 텍스트(닉네임/한줄소개) 로드
+============================================ */
+const nickname = localStorage.getItem("nickname");
+const status = localStorage.getItem("status");
+
+if (nickname) {
+  const nameEl = document.querySelector(".profile-name");
+  if (nameEl) nameEl.textContent = nickname;
+}
+
+if (status) {
+  const statusEl = document.querySelector(".profile-status");
+  if (statusEl) statusEl.textContent = status;
+}
+
 
 /* ============================================
    📌 페이지 로드시 실행되는 공통 함수
