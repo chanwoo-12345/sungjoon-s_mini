@@ -316,3 +316,28 @@ body {
   word-break: break-word;      /* 긴 단어도 박스 넘지 않도록 처리 */
   line-height: 1.4;
 }
+
+/* 3번 해결 - 프로필 업로드 커스텀 버튼 */
+.custom-upload-btn {
+  width: 100%;
+  padding: 8px 0;
+  background: #d5c4ff;
+  border: 1px solid #b8a3ff;
+  border-radius: 6px;
+  margin-top: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.custom-upload-btn:hover {
+  background: #c5b1ff;
+}
+
+/* 프로필 이미지가 영역 안에 예쁘게 들어가도록 */
+.profile-photo {
+  background-size: cover;   /* 꽉 채우되 비율 유지 */
+  background-position: center;
+  background-repeat: no-repeat;
+}
