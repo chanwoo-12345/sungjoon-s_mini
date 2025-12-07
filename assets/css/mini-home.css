@@ -873,3 +873,44 @@ body {
 .logout-btn:hover {
   background: #ffc8c8;
 }
+
+/* 왼쪽 패널 높이 유지 + 아래 고정 */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 프로필 아래 영역 간격 최소화 */
+.profile-name {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  padding: 4px 8px;
+}
+
+.profile-status {
+  margin-bottom: 6px;
+  padding: 4px 6px;
+  max-height: 40px;        /* 한줄 소개 너무 길면 스크롤 */
+  overflow-y: auto;
+}
+
+.today-box {
+  margin-bottom: 10px;
+  padding: 4px 0;
+}
+
+.edit-profile-btn {
+  margin-bottom: 12px;
+  padding: 6px 0;
+}
+
+/* 메뉴 영역 자동으로 위 여백 조절 */
+.menu {
+  margin-top: 6px !important;
+}
+
+/* 맨 아래 고정 */
+.logout-btn {
+  margin-top: auto;   /* 핵심 */
+}
