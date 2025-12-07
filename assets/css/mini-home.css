@@ -369,3 +369,16 @@ body {
   overflow-y: auto;
   height: 100%;
 }
+
+/* ===== 오른쪽 탭 내용만 스크롤 (전체 페이지 늘어나는 문제 해결) ===== */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;   /* 패널 자체는 스크롤 안함 */
+}
+
+.content-box {
+  flex: 1;                  /* 패널 안에서 남는 공간을 꽉 채움 */
+  overflow-y: auto;         /* 이 안에서만 스크롤됨 */
+  padding-right: 4px;       /* 스크롤바 여백 */
+}
