@@ -216,6 +216,17 @@ if (status) {
   if (statusEl) statusEl.textContent = status;
 }
 
+/* ====== 소개글 & 닉네임 로드 함수 ====== */
+function loadProfileText() {
+  const nickname = localStorage.getItem("nickname") || "✦ 성준★별빛남자 ✦";
+  const status = localStorage.getItem("status") || "";
+
+  const nameEl = document.querySelector(".profile-name");
+  const statusEl = document.querySelector(".profile-status");
+
+  if (nameEl) nameEl.textContent = nickname;
+  if (statusEl) statusEl.textContent = status;
+}
 
 /* ============================================
    📌 페이지 로드시 실행되는 공통 함수
@@ -227,4 +238,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPhotos();
   renderDiary();
   loadImages();
+  loadProfileText();
 });
