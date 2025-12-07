@@ -29,13 +29,13 @@ function setupTabs() {
 
 
 /* ============================================
-   📌 방문자 오늘/전체 카운트 (visitor only)
+   📌 방문자 오늘/전체 카운트 (visitor 증가 + owner 표시)
 ============================================ */
 function updateVisitCount() {
-  if (!location.pathname.includes("visitor.html")) return;
-
   const todaySpan = document.getElementById("today-count");
   const totalSpan = document.getElementById("total-count");
+
+  if (!todaySpan || !totalSpan) return;
 
   let today = Number(localStorage.getItem("visit_today") || 0);
   let total = Number(localStorage.getItem("visit_total") || 0);
@@ -43,21 +43,32 @@ function updateVisitCount() {
   const todayDate = new Date().toDateString();
   const lastVisit = localStorage.getItem("last_visit_date");
 
-  if (lastVisit !== todayDate) {
-    today = 1;
-    localStorage.setItem("last_visit_date", todayDate);
-  } else {
-    today++;
+  // -------------------------------
+  // 방문자 페이지일 때만 카운트 증가
+  // -------------------------------
+  if (location.pathname.includes("visitor.html")) {
+
+    // 날짜가 바뀌면 오늘 방문자 수 리셋
+    if (lastVisit !== todayDate) {
+      today = 1;
+      localStorage.setItem("last_visit_date", todayDate);
+    } else {
+      today++;
+    }
+
+    total++;
+
+    localStorage.setItem("visit_today", today);
+    localStorage.setItem("visit_total", total);
   }
 
-  total++;
-
-  localStorage.setItem("visit_today", today);
-  localStorage.setItem("visit_total", total);
-
-  todaySpan.textContent = today;
-  totalSpan.textContent = total;
+  // -------------------------------
+  // owner.html & visitor.html 모두 숫자 렌더링
+  // -------------------------------
+  todaySpan.textContent = localStorage.getItem("visit_today") || 0;
+  totalSpan.textContent = localStorage.getItem("visit_total") || 0;
 }
+
 
 
 /* ============================================
