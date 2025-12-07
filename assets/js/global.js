@@ -86,9 +86,12 @@ function renderGuestbook() {
     item.classList.add("guestbook-item");
 
     item.innerHTML = `
-      <div class="guestbook-meta">${entry.name} • ${entry.date}</div>
-      <div class="guestbook-text">${entry.message}</div>
-    `;
+  <div class="guestbook-meta">${entry.name} • ${entry.date}</div>
+  <div class="guestbook-text"></div>
+`;
+
+item.querySelector(".guestbook-text").textContent = entry.message;
+
 
     // 오너에게만 삭제 버튼 보임
     if (location.pathname.includes("owner.html")) {
@@ -156,10 +159,13 @@ function renderDiary() {
     const box = document.createElement("div");
     box.classList.add("diary-item");
 
-    box.innerHTML = `
-      <div class="diary-date">${d.date}</div>
-      <div class="diary-text">${d.text}</div>
-    `;
+   box.innerHTML = `
+  <div class="diary-date">${d.date}</div>
+  <div class="diary-text"></div>
+`;
+
+box.querySelector(".diary-text").textContent = d.text;
+
 
     if (location.pathname.includes("owner.html")) {
       const del = document.createElement("button");
